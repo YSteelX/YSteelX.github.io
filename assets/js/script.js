@@ -24,14 +24,13 @@ function startIntroTyping() {
   new TypeIt('#intro-text', {
     speed: 50,
   })
-    .type('Hoşgeldin!', { delay: 1200 })
+    .type('Hoşgeldin!', { delay: 1000 })
     .delete(null, { delay: 1000 })
     .type(`İçeri Girmek İçin ${mobile ? 'tap' : ' Herhangi Bi Tuşa Bas'}`)
     .go();
-
-  setTimeout(function () {
-    switchAllowed = true;
-  }, 2500);
+    setTimeout(function () {
+      switchAllowed = true;
+    }, 2500);
 }
 
 function typerStartTyping(typer) {
@@ -74,10 +73,10 @@ function switchScreen() {
   ['background', 'rain'].forEach(function (audioName) {
     let fullPath = `assets/audio/${audioName}.mp3`;
 
-    let audioElement = document.createElement('audio');
+    let audioElement = document.createElement('audio')
     audioElement.setAttribute('src', fullPath);
-    audioElement.style.display = 'none';
-
+    audioElement.style.display = 'none'
+    
     audioElement.addEventListener('ended', function () {
       this.currentTime = 0;
       this.play();
@@ -102,6 +101,6 @@ document.addEventListener('touchstart', function (e) {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  startIntroTyping();
+  switchScreen()
 });
 console.log("U2VsaW4gPDMgWXVzdWY=")
