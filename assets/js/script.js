@@ -15,22 +15,12 @@ function openSocial(type) {
     case 'twitter':
       url = 'https://twitter.com/YSteelX1';
       break;
+    case 'info':
+      url = 'https://ysteelx.tk/about.html';
+      break;
   }
 
   window.open(url);
-}
-
-function startIntroTyping() {
-  new TypeIt('#intro-text', {
-    speed: 50,
-  })
-    .type('Hoşgeldin!', { delay: 1000 })
-    .delete(null, { delay: 1000 })
-    .type(`İçeri Girmek İçin ${mobile ? 'tap' : ' Herhangi Bi Tuşa Bas'}`)
-    .go();
-    setTimeout(function () {
-      switchAllowed = true;
-    }, 2500);
 }
 
 function typerStartTyping(typer) {
@@ -81,11 +71,16 @@ function switchScreen() {
       this.currentTime = 0;
       this.play();
     });
-
     audioElement.play();
   });
 }
 
+function startIntroTyping() {
+  switchScreen()
+  setTimeout(function () {
+    switchAllowed = true;
+  }, 2500);
+}
 document.addEventListener('keydown', function (e) {
   if (switchAllowed) {
     switchAllowed = false;
